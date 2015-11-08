@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Routing;
 using GlobalMvcHelpers.ViewEngines;
 
 namespace WebFromScratch
@@ -13,6 +14,9 @@ namespace WebFromScratch
         {
             ConfigureViewEngines();
             ConfigureAntiForgeryTokens();
+
+            AreaRegistration.RegisterAllAreas();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
         protected void Session_Start(object sender, EventArgs e)
