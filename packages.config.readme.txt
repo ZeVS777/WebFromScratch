@@ -1,0 +1,2 @@
+package id="Microsoft.AspNet.Razor"			- #TODO: Описать преимущества Razor на русском: http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-(c)
+package id="Microsoft.Web.Infrastructure"	- динамическая регистрация http модулей
