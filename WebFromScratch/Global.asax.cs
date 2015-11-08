@@ -17,6 +17,7 @@ namespace WebFromScratch
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
 
         protected void Session_Start(object sender, EventArgs e)
