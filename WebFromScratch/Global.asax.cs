@@ -67,17 +67,18 @@ namespace WebFromScratch
         private static void ConfigureAntiForgeryTokens()
         {
             /*
-            *   Маркер используется при защите от межсайтовой поддерки запроса с форм.
+            *   Маркер используется при защите от межсайтовой подделки запроса с форм.
             *   Смотри https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%B6%D1%81%D0%B0%D0%B9%D1%82%D0%BE%D0%B2%D0%B0%D1%8F_%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D0%BB%D0%BA%D0%B0_%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D0%B0
             *   Переименование cookie маркера с "__RequestVerificationToken" на "_fT"
             *   позволяет добавить защищённости засчёт незнания. К сожалению, нет возможности
-            *   изменить имя формы input маркера, жёстко записан в @Html.AntiForgeryToken и 
+            *   изменить имя формы input маркера, жёстко записано в @Html.AntiForgeryToken и 
             *   аттрибут ValidationAntiforgeryTokenAttribute как __RequestVerificationToken.
             *   <input name="__RequestVerificationToken" type="hidden" value="..." />
             */
             AntiForgeryConfig.CookieName = "_fT";
 
-            // При включении SSL раскомментировать следующую строку, чтобы убедиться, что
+            // TODO: При включении SSL раскомментировать 
+            // следующую строку, чтобы убедиться, что
             // cookie маркера будет требовать SSL. 
             // AntiForgeryConfig.RequireSsl = true;
         }
