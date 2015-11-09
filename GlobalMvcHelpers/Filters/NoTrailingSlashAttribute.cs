@@ -4,55 +4,57 @@ using System.Web.Mvc;
 namespace GlobalMvcHelpers.Filters
 {
     /// <summary>
-    /// Requires that a HTTP request does not contain a trailing slash. If it does, return a 404 Not Found. This is 
-    /// useful if you are dynamically generating something which acts like it's a file on the web server. 
-    /// E.g. /Robots.txt/ should not have a trailing slash and should be /Robots.txt. Note, that we also don't care if 
-    /// it is upper-case or lower-case in this instance.
+    /// Указывает, что данный URL не каноничный. Если в конце /, возвращает 404 Not Found. 
+    /// Может быть полезным при динамическом генерировании статичного контента. 
+    /// Например, /Robots.txt/ должен быть /Robots.txt. Так же не нужно менять регистр букв.
     /// </summary>
+    // ReSharper disable RedundantAttributeUsageProperty
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
+    // ReSharper restore RedundantAttributeUsageProperty
     public class NotACanonicalUrlAttribute : FilterAttribute, IAuthorizationFilter
     {
         private const char QueryCharacter = '?';
         private const char SlashCharacter = '/';
 
         /// <summary>
-        /// Determines whether a request contains a trailing slash and if it does, calls the 
-        /// <see cref="HandleTrailingSlashRequest"/> method.
+        /// Определяет присутствие / в конце URL и вызывает в случае найденного метод 
+        /// <see cref="HandleTrailingSlashRequest"/>.
         /// </summary>
-        /// <param name="filterContext">An object that encapsulates information that is required in order to use the 
-        /// <see cref="RequireHttpsAttribute"/> attribute.</param>
-        /// <exception cref="ArgumentNullException">The <paramref name="filterContext"/> parameter is null.</exception>
+        /// <param name="filterContext">Объект, содержащий информацию, необхожимую для 
+        /// <see cref="RequireHttpsAttribute"/> аттрибута.</param>
+        /// <exception cref="ArgumentNullException">Параметр <paramref name="filterContext"/> равен <c>null</c>.</exception>
         public virtual void OnAuthorization(AuthorizationContext filterContext)
         {
             if (filterContext == null)
             {
-                throw new ArgumentNullException("filterContext");
+                throw new ArgumentNullException(nameof(filterContext));
             }
 
-            string canonicalUrl = filterContext.HttpContext.Request.Url.ToString();
-            int queryIndex = canonicalUrl.IndexOf(QueryCharacter);
+            // ReSharper disable once PossibleNullReferenceException
+            var canonicalUrl = filterContext.HttpContext.Request.Url.ToString();
+            var queryIndex = canonicalUrl.IndexOf(QueryCharacter);
 
             if (queryIndex == -1)
             {
                 if (canonicalUrl[canonicalUrl.Length - 1] == SlashCharacter)
                 {
-                    this.HandleTrailingSlashRequest(filterContext);
+                    HandleTrailingSlashRequest(filterContext);
                 }
             }
             else
             {
                 if (canonicalUrl[queryIndex - 1] == SlashCharacter)
                 {
-                    this.HandleTrailingSlashRequest(filterContext);
+                    HandleTrailingSlashRequest(filterContext);
                 }
             }
         }
 
         /// <summary>
-        /// Handles HTTP requests that have a trailing slash but are not meant to.
+        /// Обрабатывает HTTP запрос оканчивающегося на /.
         /// </summary>
-        /// <param name="filterContext">An object that encapsulates information that is required in order to use the 
-        /// <see cref="RequireHttpsAttribute"/> attribute.</param>
+        /// <param name="filterContext">Объект, содержащий информацию, необхожимую для 
+        /// <see cref="RequireHttpsAttribute"/> аттрибута.</param>
         protected virtual void HandleTrailingSlashRequest(AuthorizationContext filterContext)
         {
             filterContext.Result = new HttpNotFoundResult();
