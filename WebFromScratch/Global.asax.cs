@@ -6,10 +6,14 @@ using GlobalMvcHelpers.ViewEngines;
 
 namespace WebFromScratch
 {
+    /// <summary>
+    /// Файл global.asax позволяет записывать обработчики событий, реагирующие на глобальные события. 
+    /// </summary>
     public class Global : System.Web.HttpApplication
     {
         #region Events
-        // Событие, срабатываемое перед запуском основного приложения
+        // Событие, срабатываемое когда впервые запускается приложение и создается домен приложения.
+        // В данный обработчик события удобно помещать код инициализации всего приложения. 
         protected void Application_Start(object sender, EventArgs e)
         {
             ConfigureViewEngines();
@@ -20,31 +24,39 @@ namespace WebFromScratch
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
 
+        // Событие, срабатываемое каждый раз, когда начинается новый сеанс. Он часто применяется для инициализации информации, специфичной для пользователя.
         protected void Session_Start(object sender, EventArgs e)
         {
 
         }
 
+        // Событие, срабатываемое в начале каждого запроса
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
 
         }
 
+        // Событие, срабатываемое до того, как будет выполнена аутентификация. Это стартовая точка для создания собственной логики аутентификации.
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
 
         }
 
+        // Событие, срабатываемое сякий раз, когда в приложении возникает необработанное событие.
         protected void Application_Error(object sender, EventArgs e)
         {
 
         }
 
+        // Событие, срабатываемое сякий раз, когда сеанс пользователя завершается.
+        // Cеанс завершается, когда код явно освобождает его или когда истекает срок его действия из-за отсутствия запросов на протяжении указанного периода времени (обычно 20 минут).
         protected void Session_End(object sender, EventArgs e)
         {
 
         }
 
+        // Событие, срабатываемое cразу после завершения работы приложения.
+        // Завершение работы приложения может произойти либо по причине перезапуска IIS, либо вследствие перехода приложения в новый домен приложения в ответ на обновление файлов или параметров настроек повторного использования процесса.
         protected void Application_End(object sender, EventArgs e)
         {
 
