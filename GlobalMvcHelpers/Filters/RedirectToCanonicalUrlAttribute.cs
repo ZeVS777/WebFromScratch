@@ -120,7 +120,7 @@ namespace GlobalMvcHelpers.Filters
                     if (AppendTrailingSlash)
                     {
                         // Если нет символа /, то добавляем его.
-                        if (!hasTrailingSlash && !HasNoNotACanonicalUrlAttribute(filterContext))
+                        if (!hasTrailingSlash && !HasNotACanonicalUrlAttribute(filterContext))
                         {
                             canonicalUrl += SlashCharacter;
                             isCanonical = false;
@@ -143,7 +143,7 @@ namespace GlobalMvcHelpers.Filters
                     if (AppendTrailingSlash)
                     {
                         // Если нет символа /, то добавляем его перед ?.
-                        if (!hasTrailingSlash && !HasNoNotACanonicalUrlAttribute(filterContext))
+                        if (!hasTrailingSlash && !HasNotACanonicalUrlAttribute(filterContext))
                         {
                             canonicalUrl = canonicalUrl.Insert(queryIndex, SlashCharacter.ToString());
                             isCanonical = false;
@@ -164,7 +164,7 @@ namespace GlobalMvcHelpers.Filters
             // Если не требуется проверка нижнего регистра URL
             if (!LowercaseUrls) return isCanonical;
 
-            if (!canonicalUrl.Any(character => char.IsUpper(character) && !HasNoNotACanonicalUrlAttribute(filterContext)))
+            if (!canonicalUrl.Any(character => char.IsUpper(character) && !HasNotACanonicalUrlAttribute(filterContext)))
                 return isCanonical;
 
             // Если URL содержит строчные буквы, то седлать их прописными
@@ -190,7 +190,7 @@ namespace GlobalMvcHelpers.Filters
         /// <param name="filterContext">Контекст фильтра.</param>
         /// <returns><c>true</c>, если <see cref="NotACanonicalUrlAttribute"/> аттрибут определён, иначе 
         /// <c>false</c>.</returns>
-        protected virtual bool HasNoNotACanonicalUrlAttribute(AuthorizationContext filterContext)
+        protected virtual bool HasNotACanonicalUrlAttribute(AuthorizationContext filterContext)
         {
             return filterContext.ActionDescriptor.IsDefined(typeof(NotACanonicalUrlAttribute), false) ||
                 filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(NotACanonicalUrlAttribute), false);
