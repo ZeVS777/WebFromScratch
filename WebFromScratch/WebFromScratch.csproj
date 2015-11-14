@@ -115,6 +115,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Constants\ControllerName.cs" />
+    <Compile Include="Constants\ErrorController\ErrorControllerRoute.cs" />
+    <Compile Include="Constants\ErrorController\ErrorControllerView.cs" />
     <Compile Include="Constants\HomeController\HomeControllerRoute.cs" />
     <Compile Include="Constants\HomeController\HomeControllerView.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -131,7 +133,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Constants\ErrorController\" />
     <Folder Include="css\" />
     <Folder Include="error\" />
     <Folder Include="img\" />
