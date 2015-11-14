@@ -1,5 +1,8 @@
 ﻿namespace WebFromScratch.Constants.ErrorController
 {
+    /// <summary>
+    ///     Класс, хранящий строковые константы маршрутов контроллера Error
+    /// </summary>
     public static class ErrorControllerRoute
     {
         public const string GetBadRequest = ControllerName.Error + "GetBadRequest";

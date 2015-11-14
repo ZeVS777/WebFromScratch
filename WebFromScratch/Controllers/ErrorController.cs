@@ -1,16 +1,76 @@
 ﻿using System.Net;
 using System.Web.Mvc;
+using WebFromScratch.Constants.ErrorController;
 
 namespace WebFromScratch.Controllers
 {
+    /// <summary>
+    ///     Предоставляет методы обработки HTTP запросов с ошибками.
+    /// </summary>
+    [RoutePrefix("error")]
     public class ErrorController : Controller
     {
         /// <summary>
-        ///     Получить представление, полное или частичное,
-        /// в зависимости от того, пришёл ли запрос от Ajax или простой.
+        ///     Возвращает полное или частичное представление 400 ошибки.
         /// </summary>
-        /// <param name="status">Статус код ошибки, полное или частичное,
-        ///  в зависимости от того, пришёл ли запрос от Ajax или простой.</param>
+        /// <returns>Полное или частичное представление 400 ошибки.</returns>
+        [Route("badrequest", Name = ErrorControllerRoute.GetBadRequest)]
+        public ActionResult BadRequest()
+        {
+            return GetErrorView(HttpStatusCode.BadRequest, ErrorControllerView.BadRequest);
+        }
+
+        /// <summary>
+        ///     Возвращает полное или частичное представление 403 ошибки.
+        /// </summary>
+        /// <returns>Полное или частичное представление 403 ошибки.</returns>
+        [Route("forbidden", Name = ErrorControllerRoute.GetForbidden)]
+        public ActionResult Forbidden()
+        {
+            return GetErrorView(HttpStatusCode.Forbidden, ErrorControllerView.Forbidden);
+        }
+
+        /// <summary>
+        ///     Возвращает полное или частичное представление 500 ошибки.
+        /// </summary>
+        /// <returns>Полное или частичное представление 500 ошибки.</returns>
+        [Route("internalservererror", Name = ErrorControllerRoute.GetInternalServerError)]
+        public ActionResult InternalServerError()
+        {
+            return GetErrorView(HttpStatusCode.InternalServerError, ErrorControllerView.InternalServerError);
+        }
+
+        /// <summary>
+        ///     Возвращает полное или частичное представление 405 ошибки.
+        /// </summary>
+        /// <returns>Полное или частичное представление 405 ошибки.</returns>
+        public ActionResult MethodNotAllowed()
+        {
+            return GetErrorView(HttpStatusCode.MethodNotAllowed, ErrorControllerView.MethodNotAllowed);
+        }
+
+        /// <summary>
+        ///     Возвращает полное или частичное представление 404 ошибки.
+        /// </summary>
+        /// <returns>Полное или частичное представление 404 ошибки.</returns>
+        public ActionResult NotFound()
+        {
+            return GetErrorView(HttpStatusCode.NotFound, ErrorControllerView.NotFound);
+        }
+
+        /// <summary>
+        ///     Возвращает полное или частичное представление 401 ошибки.
+        /// </summary>
+        /// <returns>Полное или частичное представление 401 ошибки.</returns>
+        public ActionResult Unauthorized()
+        {
+            return GetErrorView(HttpStatusCode.Unauthorized, ErrorControllerView.Unauthorized);
+        }
+
+        /// <summary>
+        ///     Получить представление, полное или, если пришёл запрос от Ajax, частичное.
+        /// </summary>
+        /// <param name="status">Статус код ошибки</param>
         /// <param name="viewName">Путь до представления</param>
         /// <returns>Представление со страницей ошибки</returns>
         private ActionResult GetErrorView(HttpStatusCode status, string viewName)

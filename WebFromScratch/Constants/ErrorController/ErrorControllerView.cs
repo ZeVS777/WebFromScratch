@@ -1,5 +1,8 @@
 ﻿namespace WebFromScratch.Constants.ErrorController
 {
+    /// <summary>
+    ///     Класс, хранящий пути до представлений контроллера Home
+    /// </summary>
     public static class ErrorControllerView
     {
         public const string BadRequest = "BadRequest";
