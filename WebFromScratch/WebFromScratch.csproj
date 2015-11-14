@@ -100,7 +100,7 @@
     <Content Include="Views\Layouts\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Web.config" />
-    <None Include="Views\About\Index.cshtml" />
+    <None Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -114,7 +114,9 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Constants\ControllerName.cs" />
+    <Compile Include="Constants\HomeController\HomeControllerRoute.cs" />
+    <Compile Include="Constants\HomeController\HomeControllerView.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,6 +130,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Constants\ErrorController\" />
     <Folder Include="css\" />
     <Folder Include="error\" />
     <Folder Include="img\" />
