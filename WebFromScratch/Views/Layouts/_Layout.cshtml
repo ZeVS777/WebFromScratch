@@ -1,9 +1,14 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html lang="ru">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    @* Порядок тэгов в хедере имеет значение для большей совместимости и производительности *@
+    @* Кодировка страницы *@
+    <meta charset="utf-8">
+    @* Отображение на мобильных устройствах *@
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1.0, user-scalable = no"/>
+    @* Название, отображаемое в панели браузера. Не должно быть более 70 символов. Название сайта добавлено для SEO *@
+    <title>@ViewBag.Title | @Application.Name</title>
 </head>
 <body>
     <div>

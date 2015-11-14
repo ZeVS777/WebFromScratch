@@ -44,6 +44,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 405 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 405 ошибки.</returns>
+        [Route("methodnotallowed", Name = ErrorControllerRoute.GetMethodNotAllowed)]
         public ActionResult MethodNotAllowed()
         {
             return GetErrorView(HttpStatusCode.MethodNotAllowed, ErrorControllerView.MethodNotAllowed);
@@ -53,6 +54,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 404 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 404 ошибки.</returns>
+        [Route("notfound", Name = ErrorControllerRoute.GetNotFound)]
         public ActionResult NotFound()
         {
             return GetErrorView(HttpStatusCode.NotFound, ErrorControllerView.NotFound);
@@ -62,6 +64,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 401 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 401 ошибки.</returns>
+        [Route("unauthorized", Name = ErrorControllerRoute.GetUnauthorized)]
         public ActionResult Unauthorized()
         {
             return GetErrorView(HttpStatusCode.Unauthorized, ErrorControllerView.Unauthorized);
