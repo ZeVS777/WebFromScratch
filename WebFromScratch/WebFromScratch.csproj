@@ -117,6 +117,7 @@
     <Compile Include="Constants\ControllerName.cs" />
     <Compile Include="Constants\HomeController\HomeControllerRoute.cs" />
     <Compile Include="Constants\HomeController\HomeControllerView.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -135,6 +136,7 @@
     <Folder Include="error\" />
     <Folder Include="img\" />
     <Folder Include="js\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

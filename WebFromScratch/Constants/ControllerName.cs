@@ -1,7 +1,7 @@
 ﻿namespace WebFromScratch.Constants
 {
     /// <summary>
-    ///     Общий класс нужный классов, хранящих строковые константы маршрутов по имени
+    ///     Общий класс нужный для классов, хранящих строковые константы маршрутов по имени
     /// </summary>
     public static class ControllerName
     {
