@@ -1,4 +1,5 @@
-﻿namespace WebFromScratch.Constants.ErrorController
+﻿ // ReSharper disable once CheckNamespace
+namespace WebFromScratch.Constants
 {
     /// <summary>
     ///     Класс, хранящий строковые константы маршрутов контроллера Error

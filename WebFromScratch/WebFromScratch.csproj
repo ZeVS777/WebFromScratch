@@ -95,6 +95,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="img\icons\android\android-chrome-144x144.png" />
+    <Content Include="img\icons\android\android-chrome-192x192.png" />
+    <Content Include="img\icons\android\android-chrome-36x36.png" />
+    <Content Include="img\icons\android\android-chrome-48x48.png" />
+    <Content Include="img\icons\android\android-chrome-72x72.png" />
+    <Content Include="img\icons\android\android-chrome-96x96.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-114x114.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-120x120.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-144x144.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-152x152.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-180x180.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-57x57.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-60x60.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-72x72.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-76x76.png" />
+    <Content Include="img\icons\apple\apple-touch-icon-precomposed.png" />
+    <Content Include="img\icons\apple\apple-touch-icon.png" />
+    <Content Include="img\icons\apple\apple-touch-startup-image-1496x2048.png" />
+    <Content Include="img\icons\apple\apple-touch-startup-image-1536x2008.png" />
+    <Content Include="img\icons\apple\apple-touch-startup-image-320x460.png" />
+    <Content Include="img\icons\apple\apple-touch-startup-image-640x1096.png" />
+    <Content Include="img\icons\apple\apple-touch-startup-image-640x920.png" />
+    <Content Include="img\icons\apple\apple-touch-startup-image-748x1024.png" />
+    <Content Include="img\icons\apple\apple-touch-startup-image-768x1004.png" />
+    <Content Include="img\icons\atom\atom-icon-48x48.png" />
+    <Content Include="img\icons\atom\atom-logo-96x48.png" />
+    <Content Include="img\icons\favicon\favicon-16x16.png" />
+    <Content Include="img\icons\favicon\favicon-192x192.png" />
+    <Content Include="img\icons\favicon\favicon-32x32.png" />
+    <Content Include="img\icons\favicon\favicon-96x96.png" />
+    <Content Include="img\icons\ms\mstile-144x144.png" />
+    <Content Include="img\icons\ms\mstile-150x150.png" />
+    <Content Include="img\icons\ms\mstile-310x150.png" />
+    <Content Include="img\icons\ms\mstile-310x310.png" />
+    <Content Include="img\icons\ms\mstile-70x70.png" />
+    <Content Include="img\icons\opengraph\open-graph-1200x630.png" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Layouts\_Layout.cshtml" />
@@ -136,7 +172,6 @@
   <ItemGroup>
     <Folder Include="css\" />
     <Folder Include="error\" />
-    <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>

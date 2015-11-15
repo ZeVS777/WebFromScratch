@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using WebFromScratch.Constants.HomeController;
+using WebFromScratch.Constants;
 
 namespace WebFromScratch.Controllers
 {

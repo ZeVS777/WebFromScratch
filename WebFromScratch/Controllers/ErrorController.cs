@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using WebFromScratch.Constants.ErrorController;
+using WebFromScratch.Constants;
 
 namespace WebFromScratch.Controllers
 {

@@ -9,6 +9,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1.0, user-scalable = no"/>
     @* Название, отображаемое в панели браузера. Не должно быть более 70 символов. Название сайта добавлено для SEO *@
     <title>@ViewBag.Title | @Application.Name</title>
+
+    @* Иконки и платформозависимые настройки *@
+
+    @* Apple Иконки - Смотри https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Introduction.html#//apple_ref/doc/uid/30001261-SW1 *@
+    @* apple-touch-icon-57x57.png - Android Stock Browser и  не Retina iPhone и iPod Touch *@
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/icons/apple/apple-touch-icon-57x57.png">
+    @* apple-touch-icon-60x60.png - то же, что и для apple-touch-icon-57x57.png, плюс для не retina iPhone с iOS7. *@
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/icons/apple/apple-touch-icon-60x60.png">
+    @* apple-touch-icon-72x72.png - iPad mini и iPad 1-го и 2-го поколения (1х дисплеем) под iOS ≤ 6 *@
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/icons/apple/apple-touch-icon-72x72.png">
+    @* apple-touch-icon-76x76.png - iPad mini и iPad 1-го и 2-го поколения (1х дисплеем) под iOS ≥ 7 *@
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/icons/apple/apple-touch-icon-76x76.png">
+    @* apple-touch-icon-114x114.png - iPhone (с 2× дисплеем) iOS ≤ 6 *@
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/icons/apple/apple-touch-icon-114x114.png">
+    @* apple-touch-icon-120x120.png - iPhone (с 2× и 3х дисплеем) iOS ≥ 7 *@
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/apple/apple-touch-icon-120x120.png">
+    @* apple-touch-icon-144x144.png - iPad (с 2× дисплеем) iOS ≤ 6 *@
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/icons/apple/apple-touch-icon-144x144.png">
+    @* apple-touch-icon-152x152.png - iPad 3+ (с 2× дисплеем) iOS ≥ 7 *@
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/icons/apple/apple-touch-icon-152x152.png">
+    @* apple-touch-icon-180x180.png - iPad и iPad mini (с 2× дисплеем) iOS ≥ 8 *@
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/apple/apple-touch-icon-180x180.png">
+
+    @* apple-mobile-web-app-title - Название приложения, отображаемое при установке на IOS стартовый экран. *@
+    <meta name="apple-mobile-web-app-title" content="@Application.Name">
+    @* apple-mobile-web-app-capable - Спрятать интерфейс браузера в IOS в режиме 'stand-alone'. Внешние ссылки будут открываться в отдельном браузере. *@
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    @* apple-mobile-web-app-status-bar-style - default/black/black-translucent стили IOS статусной строки. Использование
+    black-translucent делает её прозрачной и перекрывает верхнюю часть сайта, что требует поправки margin. *@
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    @* Сартовые экраны для IOS. Будут показываться при apple-mobile-web-app-capable равной true. *@
+    @* apple-touch-startup-image-1536x2008.png - iOS 6 и 7 iPad (retina, книжный) *@
+    <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-1536x2008.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)">
+    @* apple-touch-startup-image-1496x2048.png - iOS 6 и 7 iPad (retina, альбомный) *@
+    <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)">
+    @* apple-touch-startup-image-768x1004.png - iOS 6 iPad (книжный) *@
+    <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)">
+    @* apple-touch-startup-image-748x1024.png - iOS 6 iPad (альбомный) *@
+    <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)">
+    @* apple-touch-startup-image-640x1096.png - iOS 6 и 7 iPhone 5 *@
+    <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+    @* apple-touch-startup-image-640x920.png - iOS 6 и 7 iPhone (retina) *@
+    <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
+    @* apple-touch-startup-image-320x460.png - iOS 6 iPhone *@
+    <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)">
+
+    @* favicon-32x32.png - Для Safari на Mac OS. *@
+    <link rel="icon" type="image/png" href="/img/icons/favicon/favicon-32x32.png" sizes="32x32">
+    @* favicon-192x192.png - Для Android Chrome M36 - M38. M39+ используют файл manifest.json определённый ниже. *@
+    <link rel="icon" type="image/png" href="/img/icons/favicon/favicon-192x192.png" sizes="192x192">
+    @* favicon-96x96.png - Для Google TV. *@
+    <link rel="icon" type="image/png" href="/img/icons/favicon/favicon-96x96.png" sizes="96x96">
+    @* favicon-16x16.png - Классический favicon. *@
+    <link rel="icon" type="image/png" href="/img/icons/favicon/favicon-16x16.png" sizes="16x16">
+
+    @* Android/Chrome *@
+    @* manifest-json - Файл, содержащий пути к иконкам, название приложения и настроки ориентации экрана
+        Смотри https://developer.chrome.com/multidevice/android/installtohomescreen. *@
+    @* TODO: динамическое формирование файла manifest-json*@
+    @*<link rel="manifest" href="@Url.RouteUrl(HomeControllerRoute.GetManifestJson)">*@
+    @* theme-color - Цвет меню в Chrome M39+
+    Смотри http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android *@
+    <meta name="theme-color" content="#1E1E1E">
+    @* mobile-web-app-capable - Запускать Android/Chrome версии M31 - M38 в режиме stand-alone, спрятав браузер. *@
+    <meta name="mobile-web-app-capable" content="yes">
+
+    @* Windows 7 Taskbar - Смотри http://www.buildmypinnedsite.com/windows7 *@
+
+    @* Windows 8 IE10 *@
+    @* application-name - Название приложения на плитке стартового экрана. *@
+    <meta name="application-name" content="@Application.Name">
+    @* msapplication-TileColor - Цвет плитки вокруг изображения (msapplication-TileImage). *@
+    <meta name="msapplication-TileColor" content="#5cb95c">
+    @* msapplication-TileImage - Изображение плитки. *@
+    <meta name="msapplication-TileImage" content="/img/icons/ms/mstile-144x144.png">
+
+    @* Windows 8.1/10 IE11/Edge - Смотри http://www.buildmypinnedsite.com *@
+    @* msapplication-config - Местоположение файла browserconfig.xml. *@
+    @* TODO: динамическое формирование файла
+    <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml)"> *@
+
 </head>
 <body>
     <div>
