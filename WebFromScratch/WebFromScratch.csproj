@@ -98,6 +98,7 @@
     <Content Include="error\GatewayTimeout.html" />
     <Content Include="error\ServiceUnavailable.html" />
     <Content Include="Global.asax" />
+    <Content Include="humans.txt" />
     <Content Include="img\icons\android\android-chrome-144x144.png" />
     <Content Include="img\icons\android\android-chrome-192x192.png" />
     <Content Include="img\icons\android\android-chrome-36x36.png" />

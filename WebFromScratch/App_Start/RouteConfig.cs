@@ -19,6 +19,7 @@ namespace WebFromScratch
             routes.Ignore("error/forbidden.html");
             routes.Ignore("error/gatewaytimeout.html");
             routes.Ignore("error/serviceunavailable.html");
+            routes.Ignore("humans.txt");
 
             // Включение маршрутов по аттрибутам
             routes.MapMvcAttributeRoutes();
