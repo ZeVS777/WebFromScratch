@@ -16,7 +16,9 @@ namespace WebFromScratch
             routes.Ignore("css/{*pathInfo}");
             routes.Ignore("js/{*pathInfo}");
             routes.Ignore("img/{*pathInfo}");
-            routes.Ignore("error/{*pathInfo}");
+            routes.Ignore("error/forbidden.html");
+            routes.Ignore("error/gatewaytimeout.html");
+            routes.Ignore("error/serviceunavailable.html");
 
             // Включение маршрутов по аттрибутам
             routes.MapMvcAttributeRoutes();

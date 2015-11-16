@@ -94,6 +94,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="error\Forbidden.html" />
+    <Content Include="error\GatewayTimeout.html" />
+    <Content Include="error\ServiceUnavailable.html" />
     <Content Include="Global.asax" />
     <Content Include="img\icons\android\android-chrome-144x144.png" />
     <Content Include="img\icons\android\android-chrome-192x192.png" />
@@ -177,7 +180,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="error\" />
     <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>

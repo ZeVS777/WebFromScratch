@@ -57,7 +57,7 @@ namespace WebFromScratch.Controllers
         [Route("notfound", Name = ErrorControllerRoute.GetNotFound)]
         public ActionResult NotFound()
         {
-            return GetErrorView(HttpStatusCode.NotFound, ErrorControllerView.NotFound);
+           return GetErrorView(HttpStatusCode.NotFound, ErrorControllerView.NotFound);
         }
 
         /// <summary>
