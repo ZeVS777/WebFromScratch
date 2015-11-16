@@ -145,6 +145,7 @@
     <Content Include="Views\Error\MethodNotAllowed.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Unauthorized.cshtml" />
+    <None Include="Properties\PublishProfiles\FilePublish.pubxml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
