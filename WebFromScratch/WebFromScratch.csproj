@@ -97,6 +97,7 @@
     <Content Include="error\Forbidden.html" />
     <Content Include="error\GatewayTimeout.html" />
     <Content Include="error\ServiceUnavailable.html" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="humans.txt" />
     <Content Include="img\icons\android\android-chrome-144x144.png" />
@@ -147,6 +148,7 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Unauthorized.cshtml" />
     <None Include="Properties\PublishProfiles\FilePublish.pubxml" />
+    <None Include="Properties\PublishProfiles\zevs7772006.pubxml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
