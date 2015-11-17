@@ -16,6 +16,8 @@ namespace WebFromScratch
         // В данный обработчик события удобно помещать код инициализации всего приложения. 
         protected void Application_Start(object sender, EventArgs e)
         {
+            // Убрать из заголовков X-AspNetMvc-Version. Защита по незнанию.
+            MvcHandler.DisableMvcResponseHeader = true;
             ConfigureViewEngines();
             ConfigureAntiForgeryTokens();
 
@@ -40,6 +42,12 @@ namespace WebFromScratch
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Application_PreSendRequestHeaders(object sender, EventArgs e)
+        {
+            // Убрать из заголовков Server. Защита по незнанию.
+            Response.Headers.Remove("Server");
         }
 
         // Событие, срабатываемое сякий раз, когда в приложении возникает необработанное событие.
