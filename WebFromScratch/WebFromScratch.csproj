@@ -136,6 +136,10 @@
     <Content Include="img\icons\ms\mstile-310x310.png" />
     <Content Include="img\icons\ms\mstile-70x70.png" />
     <Content Include="img\icons\opengraph\open-graph-1200x630.png" />
+    <Content Include="js\main.js" />
+    <Content Include="js\main.min.js">
+      <DependentUpon>main.js</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Layouts\_Layout.cshtml" />
@@ -147,6 +151,7 @@
     <Content Include="Views\Error\MethodNotAllowed.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Error\Unauthorized.cshtml" />
+    <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\FilePublish.pubxml" />
     <None Include="Properties\PublishProfiles\zevs7772006.pubxml" />
     <None Include="Views\Home\About.cshtml" />
@@ -184,7 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
-    <Folder Include="js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
