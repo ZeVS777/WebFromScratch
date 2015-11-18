@@ -3,7 +3,7 @@
  */
 
 WebFontConfig = {
-    google: { families: ['Lobster::latin,cyrillic'] }
+    google: { families: ['Lobster::latin,cyrillic', 'Open+Sans::latin,cyrillic'] }
 };
 (function () {
     var wf = document.createElement('script');

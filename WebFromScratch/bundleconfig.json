@@ -4,5 +4,17 @@
     "inputFiles": [
       "js/main.js"
     ]
+  },
+  {
+    "outputFileName": "css/main.css",
+    "inputFiles": [
+      "css/main.css"
+    ]
+  },
+  {
+    "outputFileName": "css/Home/index.css",
+    "inputFiles": [
+      "css/Home/index.css"
+    ]
   }
 ]

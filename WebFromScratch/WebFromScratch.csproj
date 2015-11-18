@@ -94,6 +94,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\Home\index.css" />
+    <Content Include="css\Home\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="css\main.css" />
+    <Content Include="css\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
     <Content Include="error\Forbidden.html" />
     <Content Include="error\GatewayTimeout.html" />
     <Content Include="error\ServiceUnavailable.html" />
@@ -187,9 +195,7 @@
       <Name>GlobalMvcHelpers</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -91,13 +91,21 @@
     @* TODO: динамическое формирование файла
     <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml)"> *@
 
+    @* Общие стили для всех представлений*@
+    <link href="~/css/main.min.css" rel="stylesheet" />
+    @* Секция для стилей, специфичных для конкретного представления *@
+    @RenderSection("css", required: false)
 
     <link rel="author" href="/humans.txt" />
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
+<div>
+    @RenderBody()
+</div>
+
+    @* Общий скрипт для всех представлений*@
     <script src="~/js/main.min.js"></script>
+    @* Секция для скриптов, специфичных для конкретного представления *@
+    @RenderSection("scripts", required: false)
 </body>
 </html>
