@@ -177,6 +177,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Constants\Application.cs" />
+    <Compile Include="Constants\CacheProfileName.cs" />
     <Compile Include="Constants\ControllerName.cs" />
     <Compile Include="Constants\ErrorController\ErrorControllerRoute.cs" />
     <Compile Include="Constants\ErrorController\ErrorControllerView.cs" />
