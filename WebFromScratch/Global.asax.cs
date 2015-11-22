@@ -44,12 +44,6 @@ namespace WebFromScratch
 
         }
 
-        protected void Application_PreSendRequestHeaders(object sender, EventArgs e)
-        {
-            // Убрать из заголовков Server. Защита по незнанию.
-            Response.Headers.Remove("Server");
-        }
-
         // Событие, срабатываемое сякий раз, когда в приложении возникает необработанное событие.
         protected void Application_Error(object sender, EventArgs e)
         {
