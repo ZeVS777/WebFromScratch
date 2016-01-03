@@ -99,7 +99,7 @@ namespace WebFromScratch
             // TODO: При включении SSL раскомментировать 
             // следующую строку, чтобы убедиться, что
             // cookie маркера будет требовать SSL. 
-            // AntiForgeryConfig.RequireSsl = true;
+            AntiForgeryConfig.RequireSsl = true;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace WebFromScratch
             filters.Add(new RedirectToCanonicalUrlAttribute(
                 RouteTable.Routes.AppendTrailingSlash,
                 RouteTable.Routes.LowercaseUrls));
+            filters.Add(new RedirectToHttpsAttribute(true));
         }
     }
 }
