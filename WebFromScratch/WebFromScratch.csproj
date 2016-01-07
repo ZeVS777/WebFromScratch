@@ -265,6 +265,10 @@
       <Project>{0A297901-6C47-4088-BC4B-8D2D8027C606}</Project>
       <Name>GlobalMvcHelpers</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebFromScratch.Infrastructure\WebFromScratch.Infrastructure.csproj">
+      <Project>{35950486-0C41-4FDE-AB3F-C179E827CCD2}</Project>
+      <Name>WebFromScratch.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

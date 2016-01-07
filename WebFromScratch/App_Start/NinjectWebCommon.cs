@@ -1,42 +1,46 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebFromScratch.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(WebFromScratch.App_Start.NinjectWebCommon), "Stop")]
+using System;
+using System.Web;
+using System.Web.Mvc;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using Ninject;
+using Ninject.Web.Common;
+using Ninject.Web.Mvc;
+using WebFromScratch;
+using WebFromScratch.Infrastructure.NinjectModules;
 
-namespace WebFromScratch.App_Start
+// Метод Start класса NinjectWebCommon будет запущен перед методом Application_Start в Global.asax.cs
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+// Метод Stop класса NinjectWebCommon будет запущен после метода Application_End в Global.asax.cs
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
+
+namespace WebFromScratch
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-
     public static class NinjectWebCommon 
     {
-        private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+        private static readonly Bootstrapper Bootstrapper = new Bootstrapper();
 
         /// <summary>
-        /// Starts the application
+        /// Запуск приложения
         /// </summary>
         public static void Start() 
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-            bootstrapper.Initialize(CreateKernel);
+            Bootstrapper.Initialize(CreateKernel);
         }
         
         /// <summary>
-        /// Stops the application.
+        /// Остановка приложения.
         /// </summary>
         public static void Stop()
         {
-            bootstrapper.ShutDown();
+            Bootstrapper.ShutDown();
         }
         
         /// <summary>
-        /// Creates the kernel that will manage your application.
+        /// Создаёт ядро, обслуживающее приложение.
         /// </summary>
-        /// <returns>The created kernel.</returns>
+        /// <returns>Созданное ядро.</returns>
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
@@ -56,11 +60,13 @@ namespace WebFromScratch.App_Start
         }
 
         /// <summary>
-        /// Load your modules or register your services here!
+        /// Подгружает модули и регистрирует сервисы.
         /// </summary>
-        /// <param name="kernel">The kernel.</param>
+        /// <param name="kernel">Ядро.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Load<ServicesModule>();
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }        
     }
 }
