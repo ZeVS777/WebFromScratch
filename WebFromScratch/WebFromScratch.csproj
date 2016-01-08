@@ -81,6 +81,10 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -245,13 +249,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Constants\Application.cs" />
-    <Compile Include="Constants\CacheProfileName.cs" />
-    <Compile Include="Constants\ControllerName.cs" />
-    <Compile Include="Constants\ErrorController\ErrorControllerRoute.cs" />
-    <Compile Include="Constants\ErrorController\ErrorControllerView.cs" />
-    <Compile Include="Constants\HomeController\HomeControllerRoute.cs" />
-    <Compile Include="Constants\HomeController\HomeControllerView.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -268,6 +265,14 @@
     <ProjectReference Include="..\WebFromScratch.Infrastructure\WebFromScratch.Infrastructure.csproj">
       <Project>{35950486-0C41-4FDE-AB3F-C179E827CCD2}</Project>
       <Name>WebFromScratch.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebFromScratch.Resources\WebFromScratch.Resources.csproj">
+      <Project>{678f4e77-2037-4448-bf1e-faefbf97a76e}</Project>
+      <Name>WebFromScratch.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebFromScratch.Services\WebFromScratch.Services.csproj">
+      <Project>{2E9ABBFA-D528-4D45-8B5A-84A7C1AAE8C6}</Project>
+      <Name>WebFromScratch.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

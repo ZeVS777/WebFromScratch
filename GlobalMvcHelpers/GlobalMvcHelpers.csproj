@@ -69,7 +69,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filters\NoTrailingSlashAttribute.cs" />
+    <Compile Include="ContentType.cs" />
+    <Compile Include="Filters\NotACanonicalUrlAttribute.cs" />
     <Compile Include="Filters\RedirectToCanonicalUrlAttribute.cs" />
     <Compile Include="Filters\RedirectToHttpsAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

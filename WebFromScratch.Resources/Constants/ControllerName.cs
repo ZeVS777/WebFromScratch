@@ -1,4 +1,4 @@
-﻿namespace WebFromScratch.Constants
+﻿namespace WebFromScratch.Resources.Constants
 {
     /// <summary>
     ///     Общий класс нужный для классов, хранящих строковые константы маршрутов по имени

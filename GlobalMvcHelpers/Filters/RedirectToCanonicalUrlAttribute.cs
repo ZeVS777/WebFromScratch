@@ -185,10 +185,10 @@ namespace GlobalMvcHelpers.Filters
         }
 
         /// <summary>
-        /// Определяет, есть ли над методом или его контроллером аттрибут <see cref="NotACanonicalUrlAttribute"/> 
+        /// Определяет, есть ли над методом или его контроллером аттрибут <see cref="NoTrailingSlashAttribute"/> 
         /// </summary>
         /// <param name="filterContext">Контекст фильтра.</param>
-        /// <returns><c>true</c>, если <see cref="NotACanonicalUrlAttribute"/> аттрибут определён, иначе 
+        /// <returns><c>true</c>, если <see cref="NoTrailingSlashAttribute"/> аттрибут определён, иначе 
         /// <c>false</c>.</returns>
         protected virtual bool HasNotACanonicalUrlAttribute(AuthorizationContext filterContext)
         {

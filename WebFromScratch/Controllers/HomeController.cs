@@ -1,12 +1,25 @@
 ﻿using System;
 using System.Net;
+using System.Text;
 using System.Web.Mvc;
-using WebFromScratch.Constants;
+using GlobalMvcHelpers.Filters;
+using WebFromScratch.Resources.Constants;
+using WebFromScratch.Services.ManifestService;
+using ContentType = GlobalMvcHelpers.ContentType;
 
 namespace WebFromScratch.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly IManifestService _manifestService;
+
+        public HomeController(IManifestService manifestService)
+        {
+            this._manifestService = manifestService;
+        }
+
+
         [Route("", Name = HomeControllerRoute.GetIndex)]
         public ActionResult Index()
         {
@@ -34,6 +47,14 @@ namespace WebFromScratch.Controllers
         public ActionResult About()
         {
             return View(HomeControllerView.About);
+        }
+
+        [NotACanonicalUrl]
+        [Route("manifest.json", Name = HomeControllerRoute.GetManifestJson)]
+        public ActionResult GetManifestJson()
+        {
+            string content = this._manifestService.GetManifestJson();
+            return this.Content(content, ContentType.Json, Encoding.UTF8);
         }
     }
 }

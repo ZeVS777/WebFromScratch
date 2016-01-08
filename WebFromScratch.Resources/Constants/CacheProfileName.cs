@@ -1,4 +1,4 @@
-﻿namespace WebFromScratch.Constants
+﻿namespace WebFromScratch.Resources.Constants
 {
     public static class CacheProfileName
     {

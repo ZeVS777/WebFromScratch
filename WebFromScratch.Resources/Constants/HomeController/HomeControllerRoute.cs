@@ -1,5 +1,5 @@
 ﻿ // ReSharper disable once CheckNamespace
-namespace WebFromScratch.Constants
+namespace WebFromScratch.Resources.Constants
 {
     /// <summary>
     ///     Класс, хранящий строковые константы маршрутов контроллера Home

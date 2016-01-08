@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Web.Mvc;
-using WebFromScratch.Constants;
+using WebFromScratch.Resources.Constants;
 
 namespace WebFromScratch.Controllers
 {

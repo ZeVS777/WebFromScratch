@@ -1,6 +1,7 @@
 using System;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
@@ -65,6 +66,12 @@ namespace WebFromScratch
         /// <param name="kernel">ядро.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<UrlHelper>().ToMethod((e) =>
+            {
+                var context = new HttpContextWrapper(HttpContext.Current);
+                var routeData = RouteTable.Routes.GetRouteData(context);
+                return new UrlHelper(new RequestContext(context, routeData));
+            }).InRequestScope();
             kernel.Load<ServicesModule>();
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }        
