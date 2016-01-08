@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace GlobalMvcHelpers.Filters
@@ -78,6 +77,8 @@ namespace GlobalMvcHelpers.Filters
                 throw new ArgumentNullException(nameof(filterContext));
             }
 
+            if (!string.Equals(filterContext.HttpContext.Request.HttpMethod, "GET", StringComparison.Ordinal)) return;
+
             string canonicalUrl;
             if (!TryGetCanonicalUrl(filterContext, out canonicalUrl))
             {
@@ -104,14 +105,18 @@ namespace GlobalMvcHelpers.Filters
             var url = filterContext.HttpContext.Request.Url;
             // ReSharper disable once PossibleNullReferenceException
             canonicalUrl = url.ToString();
+            // Ищем конец URL до символа ?
+            var queryIndex = canonicalUrl.IndexOf(QueryCharacter);
+            var hasNotACanonicalUrlAttribute = HasNotACanonicalUrlAttribute(filterContext);
+            var hasNoLowercaseQueryStringAttribute = HasNoLowercaseQueryStringAttribute(filterContext);
+
 
             // Если это не домашняя страница (корень приложения).
             // Поисковыми машинами корень приложения воспринимается как один адрес
             // вне зависимости от следующего знака /
             if (url.AbsolutePath.Length > 1)
             {
-                // Ищем конец URL до символа ?
-                var queryIndex = canonicalUrl.IndexOf(QueryCharacter);
+               
                 
                 if (queryIndex == -1)
                 {
@@ -120,7 +125,7 @@ namespace GlobalMvcHelpers.Filters
                     if (AppendTrailingSlash)
                     {
                         // Если нет символа /, то добавляем его.
-                        if (!hasTrailingSlash && !HasNotACanonicalUrlAttribute(filterContext))
+                        if (!hasTrailingSlash && !hasNotACanonicalUrlAttribute)
                         {
                             canonicalUrl += SlashCharacter;
                             isCanonical = false;
@@ -143,7 +148,7 @@ namespace GlobalMvcHelpers.Filters
                     if (AppendTrailingSlash)
                     {
                         // Если нет символа /, то добавляем его перед ?.
-                        if (!hasTrailingSlash && !HasNotACanonicalUrlAttribute(filterContext))
+                        if (!hasTrailingSlash && !hasNotACanonicalUrlAttribute)
                         {
                             canonicalUrl = canonicalUrl.Insert(queryIndex, SlashCharacter.ToString());
                             isCanonical = false;
@@ -161,16 +166,49 @@ namespace GlobalMvcHelpers.Filters
                 }
             }
 
-            // Если не требуется проверка нижнего регистра URL
-            if (!LowercaseUrls) return isCanonical;
+            if (LowercaseUrls)
+            {
+                foreach (var character in canonicalUrl)
+                {
+                    if (hasNoLowercaseQueryStringAttribute && queryIndex != -1)
+                    {
+                        if (character == QueryCharacter)
+                        {
+                            break;
+                        }
 
-            if (!canonicalUrl.Any(character => char.IsUpper(character) && !HasNotACanonicalUrlAttribute(filterContext)))
-                return isCanonical;
+                        if (char.IsUpper(character) && !hasNotACanonicalUrlAttribute)
+                        {
+                            canonicalUrl = canonicalUrl.Substring(0, queryIndex).ToLower() +
+                                canonicalUrl.Substring(queryIndex, canonicalUrl.Length - queryIndex);
+                            isCanonical = false;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (char.IsUpper(character) && !hasNotACanonicalUrlAttribute)
+                        {
+                            canonicalUrl = canonicalUrl.ToLower();
+                            isCanonical = false;
+                            break;
+                        }
+                    }
+                }
+            }
 
-            // Если URL содержит строчные буквы, то седлать их прописными
-            canonicalUrl = canonicalUrl.ToLower();
+            return isCanonical;
 
-            return false;
+            //// Если не требуется проверка нижнего регистра URL
+            //if (!LowercaseUrls) return isCanonical;
+
+            //if (!canonicalUrl.Any(character => char.IsUpper(character) && !HasNotACanonicalUrlAttribute(filterContext)))
+            //    return isCanonical;
+
+            //// Если URL содержит строчные буквы, то седлать их прописными
+            //canonicalUrl = canonicalUrl.ToLower();
+
+            //return false;
         }
 
         /// <summary>
@@ -185,15 +223,28 @@ namespace GlobalMvcHelpers.Filters
         }
 
         /// <summary>
-        /// Определяет, есть ли над методом или его контроллером аттрибут <see cref="NoTrailingSlashAttribute"/> 
+        /// Определяет, есть ли над методом или его контроллером аттрибут <see cref="NotACanonicalUrlAttribute"/> 
         /// </summary>
         /// <param name="filterContext">Контекст фильтра.</param>
-        /// <returns><c>true</c>, если <see cref="NoTrailingSlashAttribute"/> аттрибут определён, иначе 
+        /// <returns><c>true</c>, если <see cref="NotACanonicalUrlAttribute"/> аттрибут определён, иначе 
         /// <c>false</c>.</returns>
         protected virtual bool HasNotACanonicalUrlAttribute(AuthorizationContext filterContext)
         {
             return filterContext.ActionDescriptor.IsDefined(typeof(NotACanonicalUrlAttribute), false) ||
                 filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(NotACanonicalUrlAttribute), false);
+        }
+
+        /// <summary>
+        /// Determines whether the specified action or its controller has the <see cref="NoLowercaseQueryStringAttribute"/> 
+        /// attribute specified.
+        /// </summary>
+        /// <param name="filterContext">The filter context.</param>
+        /// <returns><c>true</c> if a <see cref="NoLowercaseQueryStringAttribute"/> attribute is specified, otherwise 
+        /// <c>false</c>.</returns>
+        protected virtual bool HasNoLowercaseQueryStringAttribute(AuthorizationContext filterContext)
+        {
+            return filterContext.ActionDescriptor.IsDefined(typeof(NoLowercaseQueryStringAttribute), false) ||
+                filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(NoLowercaseQueryStringAttribute), false);
         }
 
         #endregion
