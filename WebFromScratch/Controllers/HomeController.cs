@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Web.Mvc;
@@ -24,6 +25,9 @@ namespace WebFromScratch.Controllers
         [Route("", Name = HomeControllerRoute.GetIndex)]
         public ActionResult Index()
         {
+            Trace.WriteLine(string.Format(
+                "Index page requested. User Agent:<{0}>.",
+                this.Request.Headers.Get("User-Agent")));
             return View(HomeControllerView.Index);
         }
 
@@ -55,6 +59,9 @@ namespace WebFromScratch.Controllers
         [Route("manifest.json", Name = HomeControllerRoute.GetManifestJson)]
         public ActionResult GetManifestJson()
         {
+            Trace.WriteLine(string.Format(
+                "manifest.json requested. User Agent:<{0}>.",
+                this.Request.Headers.Get("User-Agent")));
             string content = this._manifestService.GetManifestJson();
             return this.Content(content, ContentType.Json, Encoding.UTF8);
         }
