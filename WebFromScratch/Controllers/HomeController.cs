@@ -3,6 +3,7 @@ using System.Net;
 using System.Text;
 using System.Web.Mvc;
 using GlobalMvcHelpers.Filters;
+using NWebsec.Mvc.HttpHeaders;
 using WebFromScratch.Resources.Constants;
 using WebFromScratch.Services.ManifestService;
 using ContentType = GlobalMvcHelpers.ContentType;
@@ -19,7 +20,7 @@ namespace WebFromScratch.Controllers
             this._manifestService = manifestService;
         }
 
-
+        [SetNoCacheHttpHeaders]
         [Route("", Name = HomeControllerRoute.GetIndex)]
         public ActionResult Index()
         {
@@ -50,6 +51,7 @@ namespace WebFromScratch.Controllers
         }
 
         [NotACanonicalUrl]
+        [OutputCache(CacheProfile = CacheProfileName.ManifestJson)]
         [Route("manifest.json", Name = HomeControllerRoute.GetManifestJson)]
         public ActionResult GetManifestJson()
         {
