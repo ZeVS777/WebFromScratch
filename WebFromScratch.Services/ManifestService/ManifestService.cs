@@ -3,7 +3,8 @@ using Newtonsoft.Json.Linq;
 using WebFromScratch.Resources.Constants;
 using Formatting = Newtonsoft.Json.Formatting;
 
-namespace WebFromScratch.Services.ManifestService
+// ReSharper disable once CheckNamespace
+namespace WebFromScratch.Services
 {
     public class ManifestService : IManifestService
     {

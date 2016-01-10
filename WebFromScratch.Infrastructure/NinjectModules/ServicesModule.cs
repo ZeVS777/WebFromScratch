@@ -1,6 +1,6 @@
 ﻿using Ninject.Modules;
 using Ninject.Web.Common;
-using WebFromScratch.Services.ManifestService;
+using WebFromScratch.Services;
 
 namespace WebFromScratch.Infrastructure.NinjectModules
 {
@@ -9,6 +9,7 @@ namespace WebFromScratch.Infrastructure.NinjectModules
         public override void Load()
         {
             Bind<IManifestService>().To<ManifestService>().InRequestScope();
+            Bind<IBrowserConfigService>().To<BrowserConfigService>().InRequestScope();
         }
     }
 }

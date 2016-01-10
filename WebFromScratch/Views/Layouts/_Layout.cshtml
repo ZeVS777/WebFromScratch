@@ -11,7 +11,7 @@
     <title>@ViewBag.Title | @Application.Name</title>
 
     @* Иконки и платформозависимые настройки *@
-
+    <!-- #region Apple Иконки -->
     @* Apple Иконки - Смотри https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Introduction.html#//apple_ref/doc/uid/30001261-SW1 *@
     @* apple-touch-icon-57x57.png - Android Stock Browser и  не Retina iPhone и iPod Touch *@
     <link rel="apple-touch-icon" sizes="57x57" href="/img/icons/apple/apple-touch-icon-57x57.png">
@@ -55,6 +55,7 @@
     <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
     @* apple-touch-startup-image-320x460.png - iOS 6 iPhone *@
     <link rel="apple-touch-startup-image" href="/img/icons/apple/apple-touch-startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)">
+    <!-- #endregion Apple Иконки -->
 
     @* favicon-32x32.png - Для Safari на Mac OS. *@
     <link rel="icon" type="image/png" href="/img/icons/favicon/favicon-32x32.png" sizes="32x32">
@@ -65,6 +66,7 @@
     @* favicon-16x16.png - Классический favicon. *@
     <link rel="icon" type="image/png" href="/img/icons/favicon/favicon-16x16.png" sizes="16x16">
 
+    <!-- #region Android/Chrome иконки -->
     @* Android/Chrome *@
     @* manifest-json - Файл, содержащий пути к иконкам, название приложения и настроки ориентации экрана
         Смотри https://developer.chrome.com/multidevice/android/installtohomescreen. *@
@@ -75,6 +77,7 @@
     <meta name="theme-color" content="#1E1E1E">
     @* mobile-web-app-capable - Запускать Android/Chrome версии M31 - M38 в режиме stand-alone, спрятав браузер. *@
     <meta name="mobile-web-app-capable" content="yes">
+    <!-- #endregion Android/Chrome иконки-->
 
     @* Windows 7 Taskbar - Смотри http://www.buildmypinnedsite.com/windows7 *@
 
@@ -82,14 +85,13 @@
     @* application-name - Название приложения на плитке стартового экрана. *@
     <meta name="application-name" content="@Application.Name">
     @* msapplication-TileColor - Цвет плитки вокруг изображения (msapplication-TileImage). *@
-    <meta name="msapplication-TileColor" content="#5cb95c">
+    <meta name="msapplication-TileColor" content="#1e1e1e">
     @* msapplication-TileImage - Изображение плитки. *@
-    <meta name="msapplication-TileImage" content="/img/icons/ms/mstile-144x144.png">
+    @*<meta name="msapplication-TileImage" content="/img/icons/ms/mstile-144x144.png">*@
 
     @* Windows 8.1/10 IE11/Edge - Смотри http://www.buildmypinnedsite.com *@
     @* msapplication-config - Местоположение файла browserconfig.xml. *@
-    @* TODO: динамическое формирование файла
-    <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml)"> *@
+    <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml)">
 
     @* Общие стили для всех представлений*@
     <link href="~/css/main.min.css" rel="stylesheet" />

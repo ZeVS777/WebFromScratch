@@ -1,8 +1,8 @@
 ﻿ // ReSharper disable once CheckNamespace
 namespace WebFromScratch.Services
 {
-    public interface IManifestService
+    public interface IBrowserConfigService
     {
-        string GetManifestJson();
+        string GetBrowserConfigXml();
     }
 }

@@ -72,6 +72,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrowserConfigService\BrowserConfigService.cs" />
+    <Compile Include="BrowserConfigService\IBrowserConfigService.cs" />
     <Compile Include="ManifestService\IManifestService.cs" />
     <Compile Include="ManifestService\ManifestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +82,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlobalMvcHelpers\GlobalMvcHelpers.csproj">
+      <Project>{0A297901-6C47-4088-BC4B-8D2D8027C606}</Project>
+      <Name>GlobalMvcHelpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebFromScratch.Resources\WebFromScratch.Resources.csproj">
       <Project>{678f4e77-2037-4448-bf1e-faefbf97a76e}</Project>
       <Name>WebFromScratch.Resources</Name>

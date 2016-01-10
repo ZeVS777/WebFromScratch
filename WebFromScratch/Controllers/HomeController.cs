@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.Net;
 using System.Text;
 using System.Web.Mvc;
+using GlobalMvcHelpers;
 using GlobalMvcHelpers.Filters;
 using NWebsec.Mvc.HttpHeaders;
 using WebFromScratch.Resources.Constants;
-using WebFromScratch.Services.ManifestService;
-using ContentType = GlobalMvcHelpers.ContentType;
+using WebFromScratch.Services;
 
 namespace WebFromScratch.Controllers
 {
@@ -15,10 +15,14 @@ namespace WebFromScratch.Controllers
     {
 
         private readonly IManifestService _manifestService;
+        private readonly IBrowserConfigService _browserConfigService;
 
-        public HomeController(IManifestService manifestService)
+        public HomeController(
+            IManifestService manifestService,
+            IBrowserConfigService browserConfigService)
         {
-            this._manifestService = manifestService;
+            _manifestService = manifestService;
+            _browserConfigService = browserConfigService;
         }
 
         [SetNoCacheHttpHeaders]
@@ -27,7 +31,7 @@ namespace WebFromScratch.Controllers
         {
             Trace.WriteLine(string.Format(
                 "Index page requested. User Agent:<{0}>.",
-                this.Request.Headers.Get("User-Agent")));
+                Request.Headers.Get("User-Agent")));
             return View(HomeControllerView.Index);
         }
 
@@ -55,15 +59,29 @@ namespace WebFromScratch.Controllers
         }
 
         [NotACanonicalUrl]
-        [OutputCache(CacheProfile = CacheProfileName.ManifestJson)]
+        [SetNoCacheHttpHeaders]
+        //[OutputCache(CacheProfile = HomeControllerCacheProfile.ManifestJson)]
         [Route("manifest.json", Name = HomeControllerRoute.GetManifestJson)]
-        public ActionResult GetManifestJson()
+        public ContentResult GetManifestJson()
         {
             Trace.WriteLine(string.Format(
                 "manifest.json requested. User Agent:<{0}>.",
-                this.Request.Headers.Get("User-Agent")));
-            string content = this._manifestService.GetManifestJson();
-            return this.Content(content, ContentType.Json, Encoding.UTF8);
+                Request.Headers.Get("User-Agent")));
+            string content = _manifestService.GetManifestJson();
+            return Content(content, ContentType.Json, Encoding.UTF8);
+        }
+
+        [NotACanonicalUrl]
+        [SetNoCacheHttpHeaders]
+        //[OutputCache(CacheProfile = HomeControllerCacheProfile.BrowserConfigXml)]
+        [Route("browserconfig.xml", Name = HomeControllerRoute.GetBrowserConfigXml)]
+        public ContentResult BrowserConfigXml()
+        {
+            Trace.WriteLine(string.Format(
+                "browserconfig.xml requested. User Agent:<{0}>.",
+                Request.Headers.Get("User-Agent")));
+            string content = _browserConfigService.GetBrowserConfigXml();
+            return Content(content, ContentType.Xml, Encoding.UTF8);
         }
     }
 }

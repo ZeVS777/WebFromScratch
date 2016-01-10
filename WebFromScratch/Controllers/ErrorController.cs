@@ -15,7 +15,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 400 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 400 ошибки.</returns>
-        [OutputCache(CacheProfile = CacheProfileName.BadRequest)]
+        [OutputCache(CacheProfile = ErrorControllerCacheProfile.BadRequest)]
         [Route("badrequest", Name = ErrorControllerRoute.GetBadRequest)]
         public ActionResult BadRequest()
         {
@@ -26,7 +26,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 403 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 403 ошибки.</returns>
-        [OutputCache(CacheProfile = CacheProfileName.Forbidden)]
+        [OutputCache(CacheProfile = ErrorControllerCacheProfile.Forbidden)]
         [Route("forbidden", Name = ErrorControllerRoute.GetForbidden)]
         public ActionResult Forbidden()
         {
@@ -37,7 +37,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 500 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 500 ошибки.</returns>
-        [OutputCache(CacheProfile = CacheProfileName.InternalServerError)]
+        [OutputCache(CacheProfile = ErrorControllerCacheProfile.InternalServerError)]
         [Route("internalservererror", Name = ErrorControllerRoute.GetInternalServerError)]
         public ActionResult InternalServerError()
         {
@@ -48,7 +48,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 405 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 405 ошибки.</returns>
-        [OutputCache(CacheProfile = CacheProfileName.MethodNotAllowed)]
+        [OutputCache(CacheProfile = ErrorControllerCacheProfile.MethodNotAllowed)]
         [Route("methodnotallowed", Name = ErrorControllerRoute.GetMethodNotAllowed)]
         public ActionResult MethodNotAllowed()
         {
@@ -59,7 +59,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 404 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 404 ошибки.</returns>
-        [OutputCache(CacheProfile = CacheProfileName.NotFound)]
+        [OutputCache(CacheProfile = ErrorControllerCacheProfile.NotFound)]
         [Route("notfound", Name = ErrorControllerRoute.GetNotFound)]
         public ActionResult NotFound()
         {
@@ -70,7 +70,7 @@ namespace WebFromScratch.Controllers
         ///     Возвращает полное или частичное представление 401 ошибки.
         /// </summary>
         /// <returns>Полное или частичное представление 401 ошибки.</returns>
-        [OutputCache(CacheProfile = CacheProfileName.Unauthorized)]
+        [OutputCache(CacheProfile = ErrorControllerCacheProfile.Unauthorized)]
         [Route("unauthorized", Name = ErrorControllerRoute.GetUnauthorized)]
         public ActionResult Unauthorized()
         {
