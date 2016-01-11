@@ -71,7 +71,7 @@
     @* manifest-json - Файл, содержащий пути к иконкам, название приложения и настроки ориентации экрана
         Смотри https://developer.chrome.com/multidevice/android/installtohomescreen. *@
     @* TODO: динамическое формирование файла manifest-json*@
-    <link rel="manifest" href="@Url.RouteUrl(HomeControllerRoute.GetManifestJson)">
+    <link rel="manifest" href="@Url.RouteUrl(HomeControllerRoute.GetManifestJson).TrimEnd('/')">
     @* theme-color - Цвет меню в Chrome M39+
     Смотри http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android *@
     <meta name="theme-color" content="#1E1E1E">
@@ -87,11 +87,11 @@
     @* msapplication-TileColor - Цвет плитки вокруг изображения (msapplication-TileImage). *@
     <meta name="msapplication-TileColor" content="#1e1e1e">
     @* msapplication-TileImage - Изображение плитки. *@
-    @*<meta name="msapplication-TileImage" content="/img/icons/ms/mstile-144x144.png">*@
+    <meta name="msapplication-TileImage" content="/img/icons/ms/mstile-144x144.png">
 
     @* Windows 8.1/10 IE11/Edge - Смотри http://www.buildmypinnedsite.com *@
     @* msapplication-config - Местоположение файла browserconfig.xml. *@
-    <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml)">
+    <meta name="msapplication-config" content="@Url.RouteUrl(HomeControllerRoute.GetBrowserConfigXml).TrimEnd('/')">
 
     @* Общие стили для всех представлений*@
     <link href="~/css/main.min.css" rel="stylesheet" />

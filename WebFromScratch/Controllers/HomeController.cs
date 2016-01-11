@@ -59,7 +59,6 @@ namespace WebFromScratch.Controllers
         }
 
         [NotACanonicalUrl]
-        [SetNoCacheHttpHeaders]
         //[OutputCache(CacheProfile = HomeControllerCacheProfile.ManifestJson)]
         [Route("manifest.json", Name = HomeControllerRoute.GetManifestJson)]
         public ContentResult GetManifestJson()
@@ -72,7 +71,6 @@ namespace WebFromScratch.Controllers
         }
 
         [NotACanonicalUrl]
-        [SetNoCacheHttpHeaders]
         //[OutputCache(CacheProfile = HomeControllerCacheProfile.BrowserConfigXml)]
         [Route("browserconfig.xml", Name = HomeControllerRoute.GetBrowserConfigXml)]
         public ContentResult BrowserConfigXml()

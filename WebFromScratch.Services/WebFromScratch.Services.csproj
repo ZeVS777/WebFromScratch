@@ -40,6 +40,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
@@ -74,6 +76,7 @@
   <ItemGroup>
     <Compile Include="BrowserConfigService\BrowserConfigService.cs" />
     <Compile Include="BrowserConfigService\IBrowserConfigService.cs" />
+    <Compile Include="FeedService\FeedService.cs" />
     <Compile Include="ManifestService\IManifestService.cs" />
     <Compile Include="ManifestService\ManifestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

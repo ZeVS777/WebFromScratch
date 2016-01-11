@@ -10,5 +10,6 @@ namespace WebFromScratch.Resources.Constants
         public const string GetAbout = ControllerName.Home + "GetAbout";
         public const string GetManifestJson = ControllerName.Home + "GetManifestJson";
         public const string GetBrowserConfigXml = ControllerName.Home + "GetBrowserConfigXml";
+        public const string GetFeed = ControllerName.Home + "GetFeed";
     }
 }
